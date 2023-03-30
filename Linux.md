@@ -14,7 +14,7 @@
 
 **反弹shell**
 1. https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
-2.php-reverse-shell.php - 修改ip和port
+2. php-reverse-shell.php - 修改ip和port
 
 **Wordpress:**
 1. wpscan扫描插件 + searchsploit
