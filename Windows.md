@@ -43,7 +43,8 @@
   Response, username and nonce
   Encrypt nonce with NTLM hash of user and compare to response
   Approve authentication
-  图片: https://uploader.shimo.im/f/hle9V5KFlZomVI06.png!thumbnail?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE2ODAxODM4NTAsImZpbGVHVUlEIjoibTRrTUx3Sk12R2NZYmpxRCIsImlhdCI6MTY4MDE4MzU1MCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjo3NDY0NDcxOH0._mHFUWTHqdOXMVHGPKSRUmU5NDgp_qcmo9U9MmHH4r4
+(https://user-images.githubusercontent.com/105762605/228864162-7977ee9c-f5b6-4597-8ceb-ec7ab5c67599.png)
+
   mimikatz
   http://vulnstack.qiyuanxuetang.net/vuln/detail/3/
   https://www.c0bra.xyz/2019/12/08/%E5%9F%9F%E6%B8%97%E9%80%8F-Vulnstack%E9%9D%B6%E6%9C%BA%E5%AD%A6%E4%B9%A0/
