@@ -1,4 +1,4 @@
-# OSCP
+# OSCP --- Linux
 **目录扫描**
 1. nikto
 2. dirb
