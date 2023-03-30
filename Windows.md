@@ -1,9 +1,11 @@
 # OSCP
-枚举用户，用户组
+
+**枚举用户，用户组**
   net user
   net user /domain --- filter
-PowerShell
-  LDAP://HostName[:PortNumber][/DistinguishedName]
+  PowerShell
+  
+**LDAP://HostName[:PortNumber][/DistinguishedName]**
   [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()
   $domainObj = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain() 储存整个域对象
   $PDC = ($domainObj.PdcRoleOwner).Name 存储PDC名字
@@ -17,51 +19,57 @@ PowerShell
   $Searcher.SearchRoot = $objDomain
   $Searcher.filter = "samAccountType-80530638"
   $Searcher.FindAll() or
-Foreach($objj in $Result)
-{
-  Foreach($prop in $obj.Properties)
+  Foreach($objj in $Result)
   {
-    $prop
+    Foreach($prop in $obj.Properties)
+    {
+      $prop
+    }
+    Write-Host "--------------------------------------"
   }
-  Write-Host "--------------------------------------"
-}
-收集所有用户及其属性。
-图片: https://uploader.shimo.im/f/QIfXSDg3gYGYHLNY.png!thumbnail?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE2ODAxODM4NTAsImZpbGVHVUlEIjoibTRrTUx3Sk12R2NZYmpxRCIsImlhdCI6MTY4MDE4MzU1MCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjo3NDY0NDcxOH0._mHFUWTHqdOXMVHGPKSRUmU5NDgp_qcmo9U9MmHH4r4
-攻击顺序 Bob --> Alice --> Jeff
-Get-NetLoggedon -ComputerName client251 --- 列出已登录的用户
-Get-NetSession --- 列出active session
-Active Directory Authentication
-ntlm --- 通过IP地址认证
-Calculate NTLM has
-Username
-Nonce
-Response (Encrypted nonce)
-Response, username and nonce
-Encrypt nonce with NTLM hash of user and compare to response
-Approve authentication
-图片: https://uploader.shimo.im/f/hle9V5KFlZomVI06.png!thumbnail?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE2ODAxODM4NTAsImZpbGVHVUlEIjoibTRrTUx3Sk12R2NZYmpxRCIsImlhdCI6MTY4MDE4MzU1MCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjo3NDY0NDcxOH0._mHFUWTHqdOXMVHGPKSRUmU5NDgp_qcmo9U9MmHH4r4
-mimikatz
-http://vulnstack.qiyuanxuetang.net/vuln/detail/3/
-https://www.c0bra.xyz/2019/12/08/%E5%9F%9F%E6%B8%97%E9%80%8F-Vulnstack%E9%9D%B6%E6%9C%BA%E5%AD%A6%E4%B9%A0/
 
-信息搜集
-查询操作系统和版本信息
-查看系统体系架构
-echo %PROCESSOR_ARCHITECTURE%
-查看安装的软件及版本、路径等
-wmic product get name, version
-powershell "Get-WmiObject -class Win32_Product | Select-Object -Property name,version"
-查询本机服务信息
-wmic service list brief
-查询进程列表 --- 可以查看当前进程列表和进程用户，分析软件、邮件客户端、VPN、杀软等进程
-tasklist
-tasklist /svc
-wmic process list brief
-查看启动程序信息
-查看计划任务
-schtasks /query /fo LIST /v
-查看主机开机时间
-查看用户列表 --- 通过分析本机用户列表，可以找出内网机器的命名规则。特别是个人机器的名称，可以用来推测整个域的用户命名方式。
+**收集所有用户及其属性。**
+![image](https://user-images.githubusercontent.com/105762605/228862748-2163c2f9-823b-45e3-8439-177ee59b1b78.png)
+攻击顺序 Bob --> Alice --> Jeff
+  Get-NetLoggedon -ComputerName client251 --- 列出已登录的用户
+  Get-NetSession --- 列出active session
+
+**Active Directory Authentication**
+  ntlm --- 通过IP地址认证
+  Calculate NTLM has
+  Username
+  Nonce
+  Response (Encrypted nonce)
+  Response, username and nonce
+  Encrypt nonce with NTLM hash of user and compare to response
+  Approve authentication
+  图片: https://uploader.shimo.im/f/hle9V5KFlZomVI06.png!thumbnail?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE2ODAxODM4NTAsImZpbGVHVUlEIjoibTRrTUx3Sk12R2NZYmpxRCIsImlhdCI6MTY4MDE4MzU1MCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjo3NDY0NDcxOH0._mHFUWTHqdOXMVHGPKSRUmU5NDgp_qcmo9U9MmHH4r4
+  mimikatz
+  http://vulnstack.qiyuanxuetang.net/vuln/detail/3/
+  https://www.c0bra.xyz/2019/12/08/%E5%9F%9F%E6%B8%97%E9%80%8F-Vulnstack%E9%9D%B6%E6%9C%BA%E5%AD%A6%E4%B9%A0/
+
+**信息搜集**
+1. 查询操作系统和版本信息
+  systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+  systeminfo | findstr /B /C:"OS 名称" /C:"OS 版本"
+2. 查看系统体系架构
+  echo %PROCESSOR_ARCHITECTURE%
+3. 查看安装的软件及版本、路径等
+  wmic product get name, version
+  powershell "Get-WmiObject -class Win32_Product | Select-Object -Property name,version"
+4. 查询本机服务信息
+  wmic service list brief
+5. 查询进程列表 --- 可以查看当前进程列表和进程用户，分析软件、邮件客户端、VPN、杀软等进程
+  tasklist
+  tasklist /svc
+  wmic process list brief
+6. 查看启动程序信息
+  wmic startup get command,caption
+7. 查看计划任务
+  schtasks /query /fo LIST /v
+8. 查看主机开机时间
+  wmic startup get command,caption
+9. 查看用户列表 --- 通过分析本机用户列表，可以找出内网机器的命名规则。特别是个人机器的名称，可以用来推测整个域的用户命名方式。
 net user
 执行如下命令可以获取本地管理员信息，通常会包含域用户，可以看到有两个用户和一个组，默认Domain Admins组里为域内机器的本地管理员用户。在真实环境中为了方便管理，会有域用户被添加为域及其的本地管理员用户。
 net localgroup administrators
