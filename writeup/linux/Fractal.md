@@ -24,4 +24,6 @@ Go to dirctory /home/benoit and find first flag: 813365d74b4ffc9f7052e9e888d6396
 
 ![image](https://user-images.githubusercontent.com/105762605/228890553-0dfca038-3a70-4ad5-a2c3-ecee9e1e9489.png)
 
+![image](https://user-images.githubusercontent.com/105762605/228894905-5ac83004-505a-489f-80ac-5f7cd1206159.png)
+
 
