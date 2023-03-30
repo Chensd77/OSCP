@@ -1,2 +1,0 @@
-nmap -sS -sV -p- -n 192.168.52.233 --- found 21ftp, 22ssh, 80http
-dirb http://192.168.52.233 --- found robots.txt --- app_dev.php
