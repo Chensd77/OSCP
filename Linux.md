@@ -160,6 +160,7 @@
 12. 查找特殊权限getcap -r / 2>/dev/null
 13. Flask = Python + Werkzeug
 14. Gobuster vhost 扫描域名。
+15. https://haxx.in/files/blasty-vs-pkexec.c
 
 **Mysql**
 1. update cms_users set password = (select md5(CONCAT(IFNULL((SELECT sitepref_value FROM cms_siteprefs WHERE sitepref_name = 'sitemask'),''),'admin'))) where username = 'admin'; root用户修改密码。
