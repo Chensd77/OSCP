@@ -174,7 +174,8 @@
 
 
 
-
+**上传文件**
+  1. curl -F myFile=@random.jpg http://192.168.58.183/exiftest.php
 
 
 
