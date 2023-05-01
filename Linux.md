@@ -166,6 +166,8 @@
 17. Grafana exploits:https://vk9-sec.com/grafana-8-3-0-directory-traversal-and-arbitrary-file-read-cve-2021-43798/
 18. disk priviledge escalation: https://vk9-sec.com/disk-group-privilege-escalation/
 19. ![image](https://user-images.githubusercontent.com/105762605/231203807-39e5460e-7c06-4f7f-886c-a4440ade6fcb.png)
+20. irc attack: https://book.hacktricks.xyz/network-services-pentesting/pentesting-irc https://medium.com/@al1z4deh/proving-grounds-spaghetti-4ba123427b54
+  
 
 
 **Mysql**
